@@ -205,7 +205,8 @@ Then run:
   --gtf input/gencode.v49.annotation.gtf \
   --outdir output/mrna_screen
  ``` 
-Summary of the order of operations
+## Summary of the order of operations
+
 Download the TAGSNOplex files to your computer.
 Download a matching reference transcript FASTA and GTF annotation file.
 Create the input/ and output/ folders.
