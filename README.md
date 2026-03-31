@@ -80,17 +80,17 @@ TAGSNOplex/
 ```
 
 What each script does
-extract_transcript_fasta.py
+extract_transcript_fasta.py:
 Extracts the transcript sequences of interest from the full reference transcript FASTA using the transcript IDs listed in Supplementary_Table_1.csv.
-rnaplex_utils.py
+rnaplex_utils.py:
 Contains helper functions for running RNAplex and parsing RNA–RNA interaction results.
-varna_utils.py
+varna_utils.py:
 Contains helper functions for generating structure visualizations of predicted interactions.
-transcriptome_utils.py
+transcriptome_utils.py:
 Contains helper functions for working with transcript annotation and assigning hits to 5′UTR, CDS, or 3′UTR regions using the GTF file.
-scan_snornas.py
+scan_snornas.py:
 Runs TAG-snoRNA interaction scans for selected inputs.
-scan_mrna_transcriptome.py
+scan_mrna_transcriptome.py:
 Main workflow for screening TAG-snoRNAs against the extracted transcript set and saving annotated results.
 
 Step-by-step workflow
@@ -123,6 +123,8 @@ TAGsno_DBN.csv
 gencode.v49.transcripts.fa
 gencode.v49.annotation.gtf
 Your folder should now look like this:
+
+```
 TAGSNOplex/
 │
 ├── extract_transcript_fasta.py
@@ -140,6 +142,8 @@ TAGSNOplex/
 │   └── gencode.v49.annotation.gtf
 │
 └── output/
+
+```
 Step 4. Open a terminal or Jupyter Notebook
 Move into the TAGSNOplex folder.
 In a terminal, this means changing into that folder before running commands.
@@ -150,21 +154,26 @@ If using Jupyter Notebook, first move into the folder with:
 
 Step 5. Extract the target transcript sequences
 Run the following command:
+```
 python extract_transcript_fasta.py \
   --table input/Supplementary_Table_1.csv \
   --transcript-column transcript_id \
   --input-fasta input/gencode.v49.transcripts.fa \
   --output-fasta output/target_transcripts.fasta
+```
 This step reads the transcript IDs from Supplementary_Table_1.csv, looks them up in the reference transcript FASTA, and writes the matching transcript sequences to:
 output/target_transcripts.fasta
 
 Step 6. Run the TAG-snoRNA transcriptome scan
 After output/target_transcripts.fasta has been created, run:
+```
 python scan_mrna_transcriptome.py \
   --fasta output/target_transcripts.fasta \
   --sno-list input/TAGsno_DBN.csv \
   --gtf input/gencode.v49.annotation.gtf \
   --outdir output/mrna_screen
+```
+  
 This step uses:
 the extracted transcript FASTA
 the TAG-snoRNA list
@@ -180,17 +189,21 @@ These scripts are command-line scripts, but they can also be run from a Jupyter 
 Example:
 %cd /path/to/TAGSNOplex
 Then run:
+```
 !python extract_transcript_fasta.py \
   --table input/Supplementary_Table_1.csv \
   --transcript-column transcript_id \
   --input-fasta input/gencode.v49.transcripts.fa \
   --output-fasta output/target_transcripts.fasta
+```
 Then run:
+```
 !python scan_mrna_transcriptome.py \
   --fasta output/target_transcripts.fasta \
   --sno-list input/TAGsno_DBN.csv \
   --gtf input/gencode.v49.annotation.gtf \
   --outdir output/mrna_screen
+ ``` 
 Summary of the order of operations
 Download the TAGSNOplex files to your computer.
 Download a matching reference transcript FASTA and GTF annotation file.
