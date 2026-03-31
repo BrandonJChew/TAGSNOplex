@@ -79,7 +79,8 @@ TAGSNOplex/
 └── output/
 ```
 
-What each script does
+## What each script does
+
 extract_transcript_fasta.py:
 Extracts the transcript sequences of interest from the full reference transcript FASTA using the transcript IDs listed in Supplementary_Table_1.csv.
 rnaplex_utils.py:
@@ -93,7 +94,7 @@ Runs TAG-snoRNA interaction scans for selected inputs.
 scan_mrna_transcriptome.py:
 Main workflow for screening TAG-snoRNAs against the extracted transcript set and saving annotated results.
 
-Step-by-step workflow
+## Step-by-step workflow
 Step 1. Download all required files
 Download the following to your computer:
 extract_transcript_fasta.py
