@@ -213,3 +213,6 @@ Create the input/ and output/ folders.
 Put Supplementary_Table_1.csv, TAGsno_DBN.csv, the FASTA, and the GTF into input/.
 Run extract_transcript_fasta.py.
 Run scan_mrna_transcriptome.py.
+
+10/16/26
+Donwload the TAGSNOcombined zip file, combined both chunk 1 and 2.
